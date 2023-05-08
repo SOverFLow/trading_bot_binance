@@ -56,14 +56,14 @@ def main():
         last_row = data.iloc[-1]
         previous_row = data.iloc[-2]
 
-        if not in_position and last_row['short_mavg'] > last_row['long_mavg'] and previous_row['short_mavg'] <= previous_row['long_mavg']:
-            execute_trade('BUY')
-            break 
-            in_position = True
-        elif in_position and last_row['short_mavg'] < last_row['long_mavg'] and previous_row['short_mavg'] >= previous_row['long_mavg']:
-            execute_trade('SELL')
-            in_position = False
-            break
+        #if not in_position and last_row['short_mavg'] > last_row['long_mavg'] and previous_row['short_mavg'] <= previous_row['long_mavg']:
+        execute_trade('BUY')
+        break 
+            #in_position = True
+        #elif in_position and last_row['short_mavg'] < last_row['long_mavg'] and previous_row['short_mavg'] >= previous_row['long_mavg']:
+            #execute_trade('SELL')
+            #in_position = False
+            #break
 
         time.sleep(10)
 
