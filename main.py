@@ -14,7 +14,9 @@ def main():
     while True:
         print("Fetching historical klines data...")
         data = pd.DataFrame(get_historical_klines(symbol, interval))
-        data.columns = ['timestamp', 'open', 'high', 'low', 'close', 'volume']
+        #data.columns = ['timestamp', 'open', 'high', 'low', 'close', 'volume']
+        data.columns = ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'additional_column']
+
         data['timestamp'] = pd.to_datetime(data['timestamp'], unit='s')
         data.set_index('timestamp', inplace=True)
         data['close'] = data['close'].astype(float)
@@ -25,14 +27,15 @@ def main():
         last_row = data.iloc[-1]
         previous_row = data.iloc[-2]
 
-        if not in_position and last_row['short_mavg'] > last_row['long_mavg'] and previous_row['short_mavg'] <= previous_row['long_mavg']:
-            print("Buying...")
-            execute_trade(symbol, "buy", trade_size)
-            in_position = True
-        elif in_position and last_row['short_mavg'] < last_row['long_mavg'] and previous_row['short_mavg'] >= previous_row['long_mavg']:
-            print("Selling...")
-            execute_trade(symbol, "sell", trade_size)
-            in_position = False
+        #if not in_position and last_row['short_mavg'] > last_row['long_mavg'] and previous_row['short_mavg'] <= previous_row['long_mavg']:
+        print("Buying...")
+        execute_trade(symbol, "buy", trade_size)
+        in_position = True
+        break
+        #elif in_position and last_row['short_mavg'] < last_row['long_mavg'] and previous_row['short_mavg'] >= previous_row['long_mavg']:
+            #print("Selling...")
+            #execute_trade(symbol, "sell", trade_size)
+            #in_position = False
 
         time.sleep(10) 
 
