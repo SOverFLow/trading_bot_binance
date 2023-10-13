@@ -1,2 +1,2 @@
-API_KEY = 'a5f0fc01fa62b57a457315daf811b019'
-API_SECRET = 'd473854acbfc0ab785d80c70c0a1e04c8b900b70b45b2ed179a9a97b60ae6fb6'
+API_KEY = '###########'
+API_SECRET = '###############'
