@@ -4,8 +4,8 @@ import pandas as pd
 from binance.client import Client
 
 # Binance API credentials
-api_key = 'CbEGDiJkyvMuBuGORVWb5nQnM5rQmnqem1ZXQlYZYp9ZUQRvEHQdSFfTu0MzBSCL'
-api_secret = 'k4sUgereW2Snuvjzec6hmOAlmJZgAC5a5Tls3KwdzTmCAFI8g9XxtLlHud1StVyf'
+api_key = '==========='
+api_secret = '============='
 
 # Create Binance API client
 client = Client(api_key, api_secret)
